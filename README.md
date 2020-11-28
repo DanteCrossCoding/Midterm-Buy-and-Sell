@@ -116,7 +116,8 @@ The following steps are only for _one_ of the group members to perform.
   2. All Artists ->         /artists
   3. Specific Artists ->    /artists/:artist_id
   4. Products Page ->       /products
-  5. Specific Product ->    /artists/:artist_id/:product_id
-  6. Checkout ->            /checkout
-  7. Login ->               /login
-  8. Error ->               /error
+  5. Specific Product ->    /products/:product_id
+  6. Products By Artist ->  /artists/:artist_id/products
+  7. Checkout ->            /checkout
+  8. Login ->               /login
+  9. Error ->               /error
