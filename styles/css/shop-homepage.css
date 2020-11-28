@@ -4,5 +4,9 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
 body {
-  padding-top: 56px;
+  padding-top: 70px;
+}
+
+.container {
+  margin-top: 30px;
 }
