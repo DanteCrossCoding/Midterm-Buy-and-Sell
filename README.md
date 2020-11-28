@@ -61,14 +61,15 @@ The following steps are only for _one_ of the group members to perform.
   5. Favourite items to check up on them later
   6. Send messages to the artist that is listing the product
 
-## Navigation
+## Navigation 
   1. Home - Welcome Page
   2. Artists - Band Page
-  4. Check Out - Confirm and pay 
+  3. Products - All Products Search Page
+  4. Check Out - Confirm and pay (STRETCH: dynamically update number of items icon above cart)
   5. Login/Register
     - When logged in, log out option appears
 
-## Home Page
+## Home Page -> /
   1. Carousel with rotating FEATURED ARTISTS and a photo that links to their artist page
     - When clicked, direct user to artists products page -> /artists/:artist_id
   2. Below carousel with me rows/columns of MOST POPULAR PRODUCTS
@@ -77,12 +78,45 @@ The following steps are only for _one_ of the group members to perform.
     - When click on band, direct user to band -> /artists/:artist_id
   4. Below drop down will be a list of favourited items, with ability of clicking a "X" beside to remove
 
-## Artists Page
+## Artists Page -> /artists
   1. Rows and columns of all artists alphebetically with thumbnail img
     - When artist is clicked, direct user to the artist page -> /artists/:artist_id
   2. Filter side bar, filter by genre
     - When genre is clicked, ajax request is sent and artists are dynamically filtered.
     - When genre is unclicked, all artists return. 
 
-## Check Out Page
-  1. 
+## Artist Page -> /artists/:artist_id
+  1. List of all products for sale
+    - When clicked redirect to product page -> /artists/:artist_id/:product_id
+  2. Filter side bar, lowest first or highest first. 
+    - When clicked on cost range, send ajax request and dynamically update products from DESC or ASC by cost
+
+## Products Page -> /products
+  1. By default show all products 
+    - On key stroke, dynamically update the search results
+  2. STRETCH - stock count
+
+## Check Out Page -> /checkout
+  1. List or rows of items that have been put in shopping cart
+    - Ability to remove these items
+  2. Order button with confirmation saying "Order Confirmed"
+  3. STRETCH - Update artist when order is confirmed. 
+
+## Login/Register -> /login
+  1. Simple mock form - non functional
+
+## Custom Error Page -> /error
+  1. Simplistic error page that will show error type and redirect back to previous page
+
+
+
+
+## Routes
+  1. Home Page ->           /
+  2. All Artists ->         /artists
+  3. Specific Artists ->    /artists/:artist_id
+  4. Products Page ->       /products
+  5. Specific Product ->    /artists/:artist_id/:product_id
+  6. Checkout ->            /checkout
+  7. Login ->               /login
+  8. Error ->               /error
