@@ -41,3 +41,83 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+
+## User-Story
+- Artist merchandise online store
+
+- Artists can:
+  1. Login In
+  2. Browse, Read, Edit, Add or Delete a product
+  3. See who has ordered their products
+  4. Mark orders as shipped
+  5. Mark products as sold out 
+  6. Send a message via app, email or text
+
+- Users can: 
+  1. View products before logging in
+  2. Log In
+  3. See featured items on a main feed
+  4. Filter items by price
+  5. Favourite items to check up on them later
+  6. Send messages to the artist that is listing the product
+
+## Navigation 
+  1. Home - Welcome Page
+  2. Artists - Band Page
+  3. Products - All Products Search Page
+  4. Check Out - Confirm and pay (STRETCH: dynamically update number of items icon above cart)
+  5. Login/Register
+    - When logged in, log out option appears
+
+## Home Page -> /
+  1. Carousel with rotating FEATURED ARTISTS and a photo that links to their artist page
+    - When clicked, direct user to artists products page -> /artists/:artist_id
+  2. Below carousel with me rows/columns of MOST POPULAR PRODUCTS
+    - When clicked, direct user to that specific product -> /artists/:artist_id/:product_id
+  3. Side Bar, drop down of bands
+    - When click on band, direct user to band -> /artists/:artist_id
+  4. Below drop down will be a list of favourited items, with ability of clicking a "X" beside to remove
+
+## Artists Page -> /artists
+  1. Rows and columns of all artists alphebetically with thumbnail img
+    - When artist is clicked, direct user to the artist page -> /artists/:artist_id
+  2. Filter side bar, filter by genre
+    - When genre is clicked, ajax request is sent and artists are dynamically filtered.
+    - When genre is unclicked, all artists return. 
+
+## Artist Page -> /artists/:artist_id
+  1. List of all products for sale
+    - When clicked redirect to product page -> /artists/:artist_id/:product_id
+  2. Filter side bar, lowest first or highest first. 
+    - When clicked on cost range, send ajax request and dynamically update products from DESC or ASC by cost
+
+## Products Page -> /products
+  1. By default show all products 
+    - On key stroke, dynamically update the search results
+  2. STRETCH - stock count
+
+## Check Out Page -> /checkout
+  1. List or rows of items that have been put in shopping cart
+    - Ability to remove these items
+  2. Order button with confirmation saying "Order Confirmed"
+  3. STRETCH - Update artist when order is confirmed. 
+
+## Login/Register -> /login
+  1. Simple mock form - non functional
+
+## Custom Error Page -> /error
+  1. Simplistic error page that will show error type and redirect back to previous page
+
+
+
+
+## Routes
+  1. Home Page ->           /
+  2. All Artists ->         /artists
+  3. Specific Artists ->    /artists/:artist_id
+  4. Products Page ->       /products
+  5. Specific Product ->    /products/:product_id
+  6. Products By Artist ->  /artists/:artist_id/products
+  7. Checkout ->            /checkout
+  8. Login ->               /login
+  9. Error ->               /error
