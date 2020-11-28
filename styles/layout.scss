@@ -4,11 +4,15 @@ body {
   background-color: #EEE;
 
   h1 {
-    color: #244751;
+    color: hsl(193, 38%, 23%);
+  }
+  div {
+
+    .container {
+      margin-top: 40px;
+
+    }
   }
 }
 
 
-.container {
-  margin-top: 30px;
-}
