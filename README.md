@@ -41,3 +41,48 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+
+## User-Story
+- Artist merchandise online store
+
+- Artists can:
+  1. Login In
+  2. Browse, Read, Edit, Add or Delete a product
+  3. See who has ordered their products
+  4. Mark orders as shipped
+  5. Mark products as sold out 
+  6. Send a message via app, email or text
+
+- Users can: 
+  1. View products before logging in
+  2. Log In
+  3. See featured items on a main feed
+  4. Filter items by price
+  5. Favourite items to check up on them later
+  6. Send messages to the artist that is listing the product
+
+## Navigation
+  1. Home - Welcome Page
+  2. Artists - Band Page
+  4. Check Out - Confirm and pay 
+  5. Login/Register
+    - When logged in, log out option appears
+
+## Home Page
+  1. Carousel with rotating FEATURED ARTISTS and a photo that links to their artist page
+    - When clicked, direct user to artists products page -> /artists/:artist_id
+  2. Below carousel with me rows/columns of MOST POPULAR PRODUCTS
+    - When clicked, direct user to that specific product -> /artists/:artist_id/:product_id
+  3. Side Bar, drop down of bands
+    - When click on band, direct user to band -> /artists/:artist_id
+  4. Below drop down will be a list of favourited items, with ability of clicking a "X" beside to remove
+
+## Artists Page
+  1. Rows and columns of all artists alphebetically with thumbnail img
+    - When artist is clicked, direct user to the artist page -> /artists/:artist_id
+  2. Filter side bar, filter by genre
+    - When genre is clicked, ajax request is sent and artists are dynamically filtered.
+    - When genre is unclicked, all artists return. 
+
+## Check Out Page
+  1. 
