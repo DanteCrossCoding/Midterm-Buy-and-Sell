@@ -112,12 +112,12 @@ The following steps are only for _one_ of the group members to perform.
 
 
 ## Routes
-  1. Home Page ->           /
-  2. All Artists ->         /artists
-  3. Specific Artists ->    /artists/:artist_id
-  4. Products Page ->       /products
-  5. Specific Product ->    /products/:product_id
-  6. Products By Artist ->  /artists/:artist_id/products
-  7. Checkout ->            /checkout
-  8. Login ->               /login
-  9. Error ->               /error
+  1. Home Page ->                     /
+  2. All Artists ->                   /artists
+  3. Specific Artists ->              /artists/:artist_id
+  4. Products Page ->                 /products
+  5. Specific Product ->              /products/:product_id
+  6. Products By Artist ->            /artists/:artist_id/products
+  7. Checkout ->                      /checkout
+  8. Login ->                         /login
+  9. Error ->                         /error
