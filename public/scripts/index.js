@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const createIndexCard = (productData) => {
   const $productCard = $(`
   <div class="col-lg-4 col-md-6 mb-4">
@@ -13,18 +14,18 @@ const createIndexCard = (productData) => {
   `);
   return $productCard;
 
-}
+};
 
 $(() => {
   $.ajax({
     method: "GET",
     url: "/index/api"
   }).done((products) => {
-    console.log(products)
+    console.log(products);
     for (let product of products) {
       let $currProductCard = createIndexCard(product);
       $('.row').append($currProductCard);
-      }
+    }
   }
   );
-  });
+});
