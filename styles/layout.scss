@@ -4,6 +4,11 @@ body {
   .row {
     margin-top: 50px;
   }
+  .body-row {
+    margin-top: 50px;
+    display: flex;
+    justify-content: row;
+  }
 }
 
 

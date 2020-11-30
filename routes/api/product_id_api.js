@@ -2,14 +2,13 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/api/:product_id", (req, res) => {
-    const id = [req.params.product_id];
+  router.get("/:product_id/api", (req, res) => {
+    const id = [req.params.product_id.substring(1)];
     let query = `SELECT * FROM products WHERE id = $1`;
-    console.log(query, id);
+    console.log("Product called by ID", id);
     db.query(query, id)
       .then(data => {
-        const products = data.rows;
-        res.json({ products });
+        res.send(data.rows);
       })
       .catch(err => {
         res
