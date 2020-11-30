@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const createProductCard = (productData) => {
   const $productCard = $(`
   <div class="col-lg-4 col-md-6 mb-4">
@@ -14,16 +15,16 @@ const createProductCard = (productData) => {
 
   return $productCard;
 
-}
+};
 
 $(() => {
   $.ajax({
     method: "GET",
     url: "/products/api"
   }).done((products) => {
-    for(product of products) {
+    for (product of products) {
       let $currProductCard = createProductCard(product);
       $('.row').append($currProductCard);
     }
-  });;
+  });
 });

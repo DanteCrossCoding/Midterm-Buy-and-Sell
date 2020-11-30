@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const createArtistCard = (artistData) => {
 
   const $artistCard = $(`
@@ -13,16 +14,16 @@ const createArtistCard = (artistData) => {
 
   return $artistCard;
 
-}
+};
 
 $(() => {
   $.ajax({
     method: "GET",
     url: "/artists/api"
   }).done((artists) => {
-    for(artist of artists) {
+    for (artist of artists) {
       let $currArtistCard = createArtistCard(artist);
       $('.row').append($currArtistCard);
     }
-  });;
+  });
 });
