@@ -20,7 +20,7 @@ const createProductCard = (productData) => {
 $(() => {
   $.ajax({
     method: "GET",
-    url: "/products/api"
+    url: "/api/products/"
   }).done((products) => {
     for (product of products) {
       let $currProductCard = createProductCard(product);

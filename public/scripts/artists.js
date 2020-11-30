@@ -6,7 +6,9 @@ const createArtistCard = (artistData) => {
     <div class="card">
       <img class="card-img-top" src=${artistData.website} alt="">
       <div class="card-body">
-        <p class="card-text">${artistData.name}</p>
+        <p class="card-text">
+        <a href="/artists/:${artistData.id}">${artistData.name}</a>
+        </p>
       </div>
     </div>
   </div>
@@ -19,8 +21,9 @@ const createArtistCard = (artistData) => {
 $(() => {
   $.ajax({
     method: "GET",
-    url: "/artists/api"
+    url: "/api/artists/"
   }).done((artists) => {
+    // console.log(artists);
     for (artist of artists) {
       let $currArtistCard = createArtistCard(artist);
       $('.row').append($currArtistCard);

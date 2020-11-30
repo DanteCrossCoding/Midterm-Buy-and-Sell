@@ -22,7 +22,7 @@ $(() => {
   const num = window.location.pathname.split(':');
   $.ajax({
     method: "GET",
-    url: `/products/:${num[1]}/api`
+    url: `/api/products/:${num[1]}/`
   }).done((product) => {
     console.log(product);
     // for(product of products) {
