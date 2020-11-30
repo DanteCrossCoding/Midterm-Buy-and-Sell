@@ -24,11 +24,6 @@ $(() => {
     method: "GET",
     url: `/api/products/:${num[1]}/`
   }).done((product) => {
-    console.log(product);
-    // for(product of products) {
-    //   let $currProductCard = createProductCard(product);
-    //   $('.row').append($currProductCard);
-    // }
     let $currProductCard = createProductIDCard(product);
     $('.row').append($currProductCard);
   });
