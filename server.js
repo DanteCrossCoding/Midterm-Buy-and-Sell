@@ -33,6 +33,7 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
+const indexRedirect = require("./routes/index_redirect");
 // const usersRoutes = require("./routes/users");
 const artistsRoutes = require("./routes/artists");
 const artistsAPIRoutes = require("./routes/api/artists_api");
@@ -42,10 +43,11 @@ const indexAPIRoutes = require("./routes/api/index_api");
 const productsRoutes = require("./routes/products");
 const productsAPIRoutes = require("./routes/api/products_api");
 const productIDRoutes = require("./routes/product_id");
-const productAPIRoutes = require("./routes/api/product_id_api")
+const productAPIRoutes = require("./routes/api/product_id_api");
 // const productIDByArtist = require("./routes/product_by_artist");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+app.use("/", indexRedirect());
 // app.use("/users", usersRoutes(db));
 app.use("/artists", artistsRoutes(db));
 app.use("/artists/", artistsAPIRoutes(db));
