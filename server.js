@@ -45,7 +45,9 @@ const productsRoutes = require("./routes/products");
 const productsAPIRoutes = require("./routes/api/products_api");
 const productIDRoutes = require("./routes/product_id");
 const productAPIRoutes = require("./routes/api/product_id_api");
-// const productIDByArtist = require("./routes/product_by_artist");
+const addProduct = require("./routes/add_product");
+const addProductAPI = require("./routes/api/add_product");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/", indexRedirect());
@@ -63,7 +65,10 @@ app.use("/api/index/", indexAPIRoutes(db));
 
 app.use("/products/", productIDRoutes(db));
 app.use("/api/products/", productAPIRoutes(db));
-// app.use("/artists", productIDByArtist(db));
+
+app.use("/addproduct", addProduct());
+app.use("/api/addproduct/", addProductAPI(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
