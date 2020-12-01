@@ -30,6 +30,14 @@ const artistImage = (artistData) => {
   </div>`);
 };
 
+const productArray = [];
+
+
+
+const writeProducts = (productData) => {
+  $('.row').append(createArtistPage(productData));
+};
+
 $(() => {
   const num = window.location.pathname.split(':');
   $.ajax({
@@ -45,9 +53,44 @@ $(() => {
       $('.website').append(artistWebsite(data));
       $('.band-photo').prepend(artistImage(data));
       for (product of data) {
-        let $currArtistCard = createArtistPage(product);
-        $('.row').append($currArtistCard);
+        writeProducts(product);
+        productArray.push(product);
       }
+    }
+  });
+  $("#lth-button").click(function() {
+    console.log(productArray);
+    productArray.sort(function(a, b) {
+      if (a.cost < b.cost) {
+        return -1;
+      }
+
+      if (a.cost > b.cost) {
+        return 1;
+      }
+      return 0;
+    });
+    $('.row').empty();
+    for (product of productArray) {
+      writeProducts(product);
+    }
+  });
+
+  $("#htl-button").click(function() {
+    productArray.sort(function(a, b) {
+      if (a.cost > b.cost) {
+        return -1;
+      }
+
+      if (a.cost < b.cost) {
+        return 1;
+      }
+
+      return 0;
+    });
+    $('.row').empty();
+    for (product of productArray) {
+      writeProducts(product);
     }
   });
 });
