@@ -9,6 +9,10 @@ const createProductCard = (productData) => {
         <a href="/products/:${productData.id}">${productData.name}</a>
       </h4>
       <h5>${productData.cost}</h5>
+      <form action="/api/favourites" method="POST">
+        <button name="favourite-button" type="submit" value="${productData.id}">Favourite</button>
+      </form>
+    </div>
   </div>
 </div>
   `);
@@ -17,14 +21,59 @@ const createProductCard = (productData) => {
 
 };
 
+const productArray = [];
+
+
+
+const writeProducts = (productData) => {
+  $('.row').append(createProductCard(productData));
+};
+
 $(() => {
   $.ajax({
     method: "GET",
     url: "/api/products/"
   }).done((products) => {
     for (product of products) {
-      let $currProductCard = createProductCard(product);
-      $('.row').append($currProductCard);
+      writeProducts(product);
+      productArray.push(product);
     }
   });
+
+  $("#lth-button").click(function() {
+    console.log(productArray);
+    productArray.sort(function(a, b) {
+      if (a.cost < b.cost) {
+        return -1;
+      }
+
+      if (a.cost > b.cost) {
+        return 1;
+      }
+      return 0;
+    });
+    $('.row').empty();
+    for (product of productArray) {
+      writeProducts(product);
+    }
+  });
+
+  $("#htl-button").click(function() {
+    productArray.sort(function(a, b) {
+      if (a.cost > b.cost) {
+        return -1;
+      }
+
+      if (a.cost < b.cost) {
+        return 1;
+      }
+
+      return 0;
+    });
+    $('.row').empty();
+    for (product of productArray) {
+      writeProducts(product);
+    }
+  });
+
 });
