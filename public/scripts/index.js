@@ -19,9 +19,8 @@ const createIndexCard = (productData) => {
 $(() => {
   $.ajax({
     method: "GET",
-    url: "/index/api"
+    url: "/api/index/"
   }).done((products) => {
-    console.log(products);
     for (let product of products) {
       let $currProductCard = createIndexCard(product);
       $('.row').append($currProductCard);

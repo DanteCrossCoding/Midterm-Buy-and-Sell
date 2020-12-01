@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Merch Store Home</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" src="shop-homepage.css">
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Merch Store</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/artists">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Checkout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="body-row">
+
+        <div class="col-lg-12">
+
+        <div class="row">
+          <form action="/api/addproduct/" method="POST" class="new-form">
+            <div class="form-group">
+              <label for="artist-id-label">Artist ID:</label>
+              <input type="text" class="form-control" name="artist-id-input" aria-describedby="emailHelp" placeholder="Enter Artist ID:">
+            </div>
+            <div class="form-group">
+              <label for="merch-id-label">Merch ID:</label>
+              <input type="text" class="form-control" name="merch-id" placeholder="text">
+            </div>
+            <div class="form-group">
+              <label for="merch-name-label">Name:</label>
+              <input type="text" class="form-control" name="merch-name-id" placeholder="text">
+            </div>
+            <div class="form-group">
+              <label for="merch-description-label">Description:</label>
+              <input type="text" class="form-control" name="merch-description-id" placeholder="text">
+            </div>
+            <div class="form-row">
+              <label for="merch-cost-label">Cost:</label>
+              <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input name="cost" type="number" value="0" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="merch-cost-label">Merch Sizes</label>
+              <select class="form-control" name="merch-size">
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>2XL</option>
+                <option>3XL</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="merch-thumbnail-url-label">Thumbnail Image:</label>
+              <input type="text" class="form-control" name="merch-thumbnail-url-id" placeholder="text">
+            </div>
+            <div class="form-group">
+              <label for="merch-thumbnail-url-label">Cover Photo Image:</label>
+              <input type="text" class="form-control" name="merch-cover-photo-url-id" placeholder="text">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

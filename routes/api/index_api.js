@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/api", (req, res) => {
+  router.get("/", (req, res) => {
     let query = `
     SELECT products.*
     FROM products
