@@ -9,7 +9,6 @@ module.exports = (db) => {
     const query = `
     SELECT * FROM users;
     `;
-    console.log(query);
     db.query(query)
       .then((data) => {
         if (email.length === 0 || password.length === 0) {

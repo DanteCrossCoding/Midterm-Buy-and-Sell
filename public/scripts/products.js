@@ -9,6 +9,10 @@ const createProductCard = (productData) => {
         <a href="/products/:${productData.id}">${productData.name}</a>
       </h4>
       <h5>${productData.cost}</h5>
+      <form action="/api/favourites" method="POST">
+        <button name="favourite-button" type="submit" value="${productData.id}">Favourite</button>
+      </form>
+    </div>
   </div>
 </div>
   `);

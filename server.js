@@ -55,6 +55,9 @@ const addProductAPI = require("./routes/api/add_product");
 const login = require("./routes/login");
 const loginAPI = require("./routes/api/login_api");
 
+// const favouritesAdd = require("./routes/api/favourites_add");
+// const favouritesRemove = require("./routes/api/favourites_remove");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/", indexRedirect());
@@ -80,8 +83,11 @@ app.use(cookieSession({
   name: 'session',
   keys: ['email', 'password']
 }));
+
 app.use("/login", login());
 app.use("/api/login", loginAPI(db));
+
+// app.use("/api/favourites", favouritesAdd(db));
 
 // Note: mount other resources here, using the same pattern above
 
