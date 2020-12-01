@@ -31,11 +31,16 @@ $(() => {
     method: "GET",
     url: `/api/artist/:${num[1]}/`
   }).done((data) => {
-    $('.col-lg-9').prepend(artistName(data));
-    // $('.website').prepend(artistWebsite(data));
-    for (product of data) {
-      let $currArtistCard = createArtistPage(product);
-      $('.row').append($currArtistCard);
+    if (data[0] === "artist only") {
+      $('.col-lg-9').prepend(artistName(data[1]));
+      $('.website').append(artistWebsite(data[1]));
+    } else {
+      $('.col-lg-9').prepend(artistName(data));
+      $('.website').append(artistWebsite(data));
+      for (product of data) {
+        let $currArtistCard = createArtistPage(product);
+        $('.row').append($currArtistCard);
+      }
     }
   });
 });

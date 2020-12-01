@@ -8,7 +8,20 @@ module.exports = (db) => {
     console.log("Artist called by ID", id);
     db.query(query, id)
       .then(data => {
-        res.send(data.rows);
+        if (data.rows.length === 0) {
+          query = `SELECT name as artist_name, website, id FROM artists WHERE id = $1`;
+          db.query(query, id)
+            .then(data => {
+              res.send(["artist only", data.rows]);
+            })
+            .catch(err => {
+              res
+                .status(500)
+                .json({ error: err.message });
+            });
+        } else {
+          res.send(data.rows);
+        }
       })
       .catch(err => {
         res
