@@ -88,7 +88,7 @@ app.use(cookieSession({
 app.use("/login", login());
 app.use("/api/login", loginAPI(db));
 
-app.use("/api/favourites", favouritesAdd(db));
+app.use("/api/favourites/", favouritesAdd(db));
 app.use("/api/favourites/", favouritesList(db));
 
 // Note: mount other resources here, using the same pattern above

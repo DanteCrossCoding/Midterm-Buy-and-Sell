@@ -9,7 +9,7 @@ const createArtistPage = (artistData) => {
           <a href="artists/:${artistData.id}">${artistData.product_name}</a>
         </h4>
         <h5>${artistData.cost}</h5>
-        <form action="/api/favourites" method="POST">
+        <form action="/api/favourites/add" method="POST">
         <button name="favourite-button" type="submit" value="${artistData.product_id}>favourite</button>
         </form>
     </div>
