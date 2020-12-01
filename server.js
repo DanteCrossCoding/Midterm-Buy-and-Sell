@@ -2,13 +2,14 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
-const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const PORT          = process.env.PORT || 8080;
+const ENV           = process.env.ENV || "development";
+const express       = require("express");
+const bodyParser    = require("body-parser");
+const sass          = require("node-sass-middleware");
+const app           = express();
+const morgan        = require('morgan');
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -51,26 +52,36 @@ const productAPIRoutes = require("./routes/api/product_id_api");
 const addProduct = require("./routes/add_product");
 const addProductAPI = require("./routes/api/add_product");
 
+const login = require("./routes/login");
+const loginAPI = require("./routes/api/login_api");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/", indexRedirect());
 // app.use("/users", usersRoutes(db));
-app.use("/artists", artistsRoutes(db));
-app.use("/artists/", artistIDRoutes(db));
+app.use("/artists", artistsRoutes());
+app.use("/artists/", artistIDRoutes());
 app.use("/api/artists/", artistsAPIRoutes(db));
 app.use("/api/artist/", artistProductsAPI(db));
 
-app.use("/products", productsRoutes(db));
+app.use("/products", productsRoutes());
 app.use("/api/products/", productsAPIRoutes(db));
-app.use("/products/", productIDRoutes(db));
+app.use("/products/", productIDRoutes());
 app.use("/api/products/", productAPIRoutes(db));
 
-app.use("/index", indexRoutes(db));
+app.use("/index", indexRoutes());
 app.use("/api/index/", indexAPIRoutes(db));
 
 
 app.use("/addproduct", addProduct());
 app.use("/api/addproduct/", addProductAPI(db));
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['email', 'password']
+}));
+app.use("/login", login());
+app.use("/api/login", loginAPI(db));
 
 // Note: mount other resources here, using the same pattern above
 
