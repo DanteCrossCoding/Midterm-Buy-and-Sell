@@ -25,6 +25,11 @@ const artistWebsite = (artistWeb) => {
   return $(`<a href=${artistWeb[0].website}>Vist our website!</a>`);
 };
 
+const artistImage = (artistData) => {
+  return $(`<img class="d-block img-fluid" src=${artistData[0].artist_image}>
+  </div>`);
+};
+
 $(() => {
   const num = window.location.pathname.split(':');
   $.ajax({
@@ -34,9 +39,11 @@ $(() => {
     if (data[0] === "artist only") {
       $('.col-lg-9').prepend(artistName(data[1]));
       $('.website').append(artistWebsite(data[1]));
+      $('.band-photo').prepend(artistImage(data[1]));
     } else {
       $('.col-lg-9').prepend(artistName(data));
       $('.website').append(artistWebsite(data));
+      $('.band-photo').prepend(artistImage(data));
       for (product of data) {
         let $currArtistCard = createArtistPage(product);
         $('.row').append($currArtistCard);
