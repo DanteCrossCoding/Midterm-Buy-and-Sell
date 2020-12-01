@@ -22,7 +22,6 @@ module.exports = (db) => {
     db.query(query)
       .then((data) => {
         console.log('data added', data.rows);
-        // eslint-disable-next-line no-undef
         res.redirect("/");
       })
       .catch((error) => {

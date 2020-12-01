@@ -21,6 +21,9 @@ const artistName = (artistData) => {
   return $(`<h2>${artistData[0].artist_name}</h2>`);
 };
 
+const artistWebsite = (artistWeb) => {
+  return $(`<a href=${artistWeb[0].website}>Vist our website!</a>`);
+};
 
 $(() => {
   const num = window.location.pathname.split(':');
@@ -28,10 +31,11 @@ $(() => {
     method: "GET",
     url: `/api/artist/:${num[1]}/`
   }).done((data) => {
+    $('.col-lg-9').prepend(artistName(data));
+    // $('.website').prepend(artistWebsite(data));
     for (product of data) {
       let $currArtistCard = createArtistPage(product);
       $('.row').append($currArtistCard);
     }
-    $('.col-lg-9').prepend(artistName(data));
   });
 });

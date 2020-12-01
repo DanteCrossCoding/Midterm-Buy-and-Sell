@@ -9,6 +9,7 @@ const createProductIDCard = (productData) => {
           <a href="products/:${productData[0].id}">${productData[0].name}</a>
         </h4>
         <h5>${productData[0].cost}</h5>
+        <h5><a href="mailto:${productData[0].artist_email}?subject=${productData[0].name}">Contact us about this product!</a></h5>
     </div>
   </div>
   `);
