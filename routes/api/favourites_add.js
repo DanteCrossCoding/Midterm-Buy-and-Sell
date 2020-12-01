@@ -3,6 +3,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
   });
+  return router;
 };

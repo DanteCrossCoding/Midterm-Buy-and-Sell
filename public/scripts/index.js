@@ -9,13 +9,18 @@ const createIndexCard = (productData) => {
         <a href="/products/:${productData.id}">${productData.name}</a>
       </h4>
       <h5>${productData.cost}</h5>
-      <a href="/api/favourites/:${productData.id}">favourite</a>
+      <form action="/api/favourites/add" method="POST">
+        <button name="favourite-button" type="submit" value="${productData.id}">favourite</button>
+      </form>
     </div>
+  </div>
   </div>
   `);
   return $productCard;
 
 };
+
+
 
 $(() => {
   $.ajax({
@@ -26,6 +31,5 @@ $(() => {
       let $currProductCard = createIndexCard(product);
       $('.row').append($currProductCard);
     }
-  }
-  );
+  });
 });

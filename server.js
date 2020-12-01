@@ -55,7 +55,8 @@ const addProductAPI = require("./routes/api/add_product");
 const login = require("./routes/login");
 const loginAPI = require("./routes/api/login_api");
 
-// const favouritesAdd = require("./routes/api/favourites_add");
+const favouritesAdd = require("./routes/api/favourites_add");
+const favouritesList = require("./routes/api/favourites_list");
 // const favouritesRemove = require("./routes/api/favourites_remove");
 
 // Mount all resource routes
@@ -87,7 +88,8 @@ app.use(cookieSession({
 app.use("/login", login());
 app.use("/api/login", loginAPI(db));
 
-// app.use("/api/favourites", favouritesAdd(db));
+app.use("/api/favourites", favouritesAdd(db));
+app.use("/api/favourites/", favouritesList(db));
 
 // Note: mount other resources here, using the same pattern above
 

@@ -14,10 +14,9 @@ const createProductIDCard = (productData) => {
     </div>
   </div>
   `);
-
   return $productCard;
-
 };
+
 
 
 $(() => {
