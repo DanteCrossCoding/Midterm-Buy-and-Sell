@@ -39,6 +39,8 @@ const artistsRoutes = require("./routes/artists");
 const artistsAPIRoutes = require("./routes/api/artists_api");
 const artistProductsAPI = require("./routes/api/artist_id_api");
 const artistIDRoutes = require("./routes/artist_id");
+const artistPageAPI = require("./routes/api/artist_products.js")
+const artistPage = require("./routes/artist_page.js");
 
 const indexRedirect = require("./routes/index_redirect");
 const indexRoutes = require("./routes/index");
@@ -52,8 +54,12 @@ const productAPIRoutes = require("./routes/api/product_id_api");
 const addProduct = require("./routes/add_product");
 const addProductAPI = require("./routes/api/add_product");
 
+const removeProduct = require("./routes/remove_product");
+const removeProductAPI = require("./routes/api/remove_product");
+
 const login = require("./routes/login");
 const loginAPI = require("./routes/api/login_api");
+const artistLoginAPI = require("./routes/api/artist_login");
 
 const favouritesAdd = require("./routes/api/favourites_add");
 const favouritesList = require("./routes/api/favourites_list");
@@ -61,12 +67,20 @@ const favouritesRemove = require("./routes/api/favourites_remove");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+app.use(cookieSession({
+  name: 'session',
+  keys: ['email', 'password']
+}));
+
+
 app.use("/", indexRedirect());
 // app.use("/users", usersRoutes(db));
 app.use("/artists", artistsRoutes());
 app.use("/artists/", artistIDRoutes());
 app.use("/api/artists/", artistsAPIRoutes(db));
 app.use("/api/artist/", artistProductsAPI(db));
+app.use("artists/products", artistPage(db));
+app.use("/api/artists/products", artistPageAPI(db));
 
 app.use("/products", productsRoutes());
 app.use("/api/products/", productsAPIRoutes(db));
@@ -80,13 +94,12 @@ app.use("/api/index/", indexAPIRoutes(db));
 app.use("/addproduct", addProduct());
 app.use("/api/addproduct/", addProductAPI(db));
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['email', 'password']
-}));
+app.use("/removeproduct", removeProduct());
+app.use("/api/removeproduct/", removeProductAPI(db));
 
 app.use("/login", login());
 app.use("/api/login", loginAPI(db));
+app.use("/api/artist-login", artistLoginAPI(db));
 
 app.use("/api/favourites/", favouritesAdd(db));
 app.use("/api/favourites/", favouritesList(db));

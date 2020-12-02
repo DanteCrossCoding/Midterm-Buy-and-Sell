@@ -1,12 +1,13 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (db) => {
-  router.get("/", (req, res) => {
-    let query = `SELECT * FROM artists`;
-    console.log("Artist API called", query);
+module.exports = ((db) => {
+  router.get('/', (req, res) => {
+    const query = `
+    SELECT * FROM products WHERE artist_id = (SELECT id FROM artists WHERE email = '${req.session.email}')
+    `;
     db.query(query)
-      .then(data => {
+      .then((data) => {
         res.send(data.rows);
       })
       .catch(err => {
@@ -16,4 +17,4 @@ module.exports = (db) => {
       });
   });
   return router;
-};
+});

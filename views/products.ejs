@@ -26,7 +26,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a href="/" class="navbar-brand" href="/">Merch Table</a>
+      <a class="navbar-brand" href="#">Merch Store</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,10 +39,16 @@
             <a class="nav-link" href="/artists">Artists</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="/products">Products</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Checkout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/addproduct">Add Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/removeproduct">Remove Product</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
@@ -56,15 +62,12 @@
   <div class="container">
 
     <div class="body-row">
-
       <div class="col-lg-3">
-
-        <h1 class="my-4">Merch</h1>
-        <div class="list-group">
-          <!-- insert filters here -->
+        <div>
           <button id="lth-button" type="button" class="btn btn-primary btn-lg btn-block">Price: Lowest To Highest</button>
           <button id="htl-button" type="button" class="btn btn-secondary btn-lg btn-block">Price: Highest To Lowest</button>
         </div>
+
 
       </div>
       <!-- /.col-lg-3 -->

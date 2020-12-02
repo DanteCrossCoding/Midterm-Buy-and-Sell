@@ -42,7 +42,6 @@ $(() => {
   });
 
   $("#lth-button").click(function() {
-    console.log(productArray);
     productArray.sort(function(a, b) {
       if (a.cost < b.cost) {
         return -1;
