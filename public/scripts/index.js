@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 const createIndexCard = (productData) => {
   const $productCard = $(`
   <div class="col-lg-4 col-md-6 mb-4">
@@ -10,8 +11,9 @@ const createIndexCard = (productData) => {
       </h4>
       <h5>${productData.cost}</h5>
       <form action="/api/favourites/add" method="POST">
-        <button name="favourite-button" type="submit" value="${productData.id}">favourite</button>
-      </form>
+      <input class="form-control" type="hidden" name="productID" value="${productData.id}">
+      <button type="submit">Favorite</button>
+    </form>
     </div>
   </div>
   </div>
@@ -19,8 +21,6 @@ const createIndexCard = (productData) => {
   return $productCard;
 
 };
-
-
 
 $(() => {
   $.ajax({
