@@ -1,7 +1,12 @@
 /* eslint-disable no-undef */
 const createFavourite = (favourite) => {
   const $favouriteItem = $(`
-  <a href="/products/:${favourite.id}" class="list-group-item">${favourite.name}</a>
+  <a href="/products/:${favourite.id}" class="list-group-item">${favourite.name}
+  <form action="/api/favourites/remove" method="POST">
+  <input class="form-control" type="hidden" name="productID" value="${favourite.id}">
+  <button type="submit">Delete</button>
+  </form>
+  </a>
   `);
   return $favouriteItem;
 };
