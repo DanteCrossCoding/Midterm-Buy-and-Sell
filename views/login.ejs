@@ -30,7 +30,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="/index">Home</a>
           </li>
           <li class="nav-item">
@@ -42,8 +42,14 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Checkout</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Login</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/addproduct">Add Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/removeproduct">Remove Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
           </li>
         </ul>
       </div>
@@ -51,8 +57,16 @@
   </nav>
 
   <!-- Page Content -->
-  <h2>Login</h2>
+  <h2>Users Login</h2>
   <form class="for-inline" action="/api/login" method="POST" style="margin: 1em">
+    <label for="email">Email</label>
+    <input class="form-control" type="email" name="email" placeholder="email" style="width: 300px; margin: 1em">
+    <label for="password">Password</label>
+    <input class="form-control" type="password" name="password" placeholder="password" style="width: 300px; margin: 1em">
+    <button type="submit">Login</button>
+  </form>
+  <h2>Artist Login</h2>
+  <form class="for-inline" action="/api/artist-login" method="POST" style="margin: 1em">
     <label for="email">Email</label>
     <input class="form-control" type="email" name="email" placeholder="email" style="width: 300px; margin: 1em">
     <label for="password">Password</label>

@@ -30,17 +30,23 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"></li>
+          <li class="nav-item active">
             <a class="nav-link" href="/index">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/artists">Artists</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/products">Products</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Checkout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/addproduct">Add Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/removeproduct">Remove Product</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
@@ -59,10 +65,6 @@
 
         <div class="row">
           <form action="/api/addproduct/" method="POST" class="new-form">
-            <div class="form-group">
-              <label for="artist-id-label">Artist ID:</label>
-              <input type="text" class="form-control" name="artist-id-input" aria-describedby="emailHelp" placeholder="Enter Artist ID:">
-            </div>
             <div class="form-group">
               <label for="merch-id-label">Merch ID:</label>
               <input type="text" class="form-control" name="merch-id" placeholder="text">

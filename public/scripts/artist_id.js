@@ -10,7 +10,7 @@ const createArtistPage = (artistData) => {
         </h4>
         <h5>${artistData.cost}</h5>
         <form action="/api/favourites/add" method="POST">
-        <input class="form-control" type="hidden" name="productID" value="${productData.id}">
+        <input class="form-control" type="hidden" name="productID" value="${artistData.id}">
         <button type="submit">Favorite</button>
       </form>
     </div>
@@ -63,7 +63,6 @@ $(() => {
     }
   });
   $("#lth-button").click(function() {
-    console.log(productArray);
     productArray.sort(function(a, b) {
       if (a.cost < b.cost) {
         return -1;

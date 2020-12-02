@@ -13,7 +13,13 @@ module.exports = (db) => {
     `;
     db.query(query)
       .then((data) => {
-        res.send(data.rows);
+        if (data.rows.length !== 0) {
+          res.send(data.rows);
+        }
+        if (data.rows.length === 0) {
+          res.send("no data")
+        }
+
       })
       .catch(err => {
         res
