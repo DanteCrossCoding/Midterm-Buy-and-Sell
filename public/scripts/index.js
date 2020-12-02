@@ -28,6 +28,9 @@ $(() => {
     url: "/api/index/"
   }).done((products) => {
     for (let product of products) {
+      if (product.sold_out) {
+        product.thumbnail_photo_url = "../images/sold_out.png";
+      }
       let $currProductCard = createIndexCard(product);
       $('.row').append($currProductCard);
     }
