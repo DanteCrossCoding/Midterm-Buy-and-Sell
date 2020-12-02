@@ -41,6 +41,7 @@ const artistProductsAPI = require("./routes/api/artist_id_api");
 const artistIDRoutes = require("./routes/artist_id");
 const artistPageAPI = require("./routes/api/artist_products.js")
 const artistPage = require("./routes/artist_page.js");
+const soldOut = require("./routes/api/sold_out.js")
 
 const indexRedirect = require("./routes/index_redirect");
 const indexRoutes = require("./routes/index");
@@ -81,6 +82,7 @@ app.use("/api/artists/", artistsAPIRoutes(db));
 app.use("/api/artist/", artistProductsAPI(db));
 app.use("artists/products", artistPage(db));
 app.use("/api/artists/products", artistPageAPI(db));
+app.use("/api/sold-out", soldOut(db));
 
 app.use("/products", productsRoutes());
 app.use("/api/products/", productsAPIRoutes(db));

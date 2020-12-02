@@ -57,6 +57,9 @@ $(() => {
       $('.website').append(artistWebsite(data));
       $('.band-photo').prepend(artistImage(data));
       for (product of data) {
+        if (product.sold_out) {
+          product.thumbnail_photo_url = "../images/sold_out.png";
+        }
         writeProducts(product);
         productArray.push(product);
       }

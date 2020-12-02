@@ -29,7 +29,9 @@ $(() => {
     method: "GET",
     url: `/api/products/:${num[1]}/`
   }).done((product) => {
-    let $currProductCard = createProductIDCard(product);
-    $('.row').append($currProductCard);
+    if (product[0].sold_out) {
+      product[0].thumbnail_photo_url = "../images/sold_out.png";
+    }
+    $('.row').append(createProductIDCard(product));
   });
 });
