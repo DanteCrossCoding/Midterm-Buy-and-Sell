@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Artists</title>
+  <title>Login</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,34 +24,31 @@
   <!-- Navigation -->
   <%- include('partials/header') %>
 
+  <div class="container">
   <!-- Page Content -->
-  <h2>Users Login</h2>
-  <form class="for-inline" action="/api/login" method="POST" style="margin: 1em">
-    <label for="email">Email</label>
-    <input class="form-control" type="email" name="email" placeholder="email" style="width: 300px; margin: 1em">
-    <label for="password">Password</label>
-    <input class="form-control" type="password" name="password" placeholder="password" style="width: 300px; margin: 1em">
-    <button type="submit">Login</button>
-  </form>
-  <h2>Artist Login</h2>
-  <form class="for-inline" action="/api/artist-login" method="POST" style="margin: 1em">
-    <label for="email">Email</label>
-    <input class="form-control" type="email" name="email" placeholder="email" style="width: 300px; margin: 1em">
-    <label for="password">Password</label>
-    <input class="form-control" type="password" name="password" placeholder="password" style="width: 300px; margin: 1em">
-    <button type="submit">Login</button>
-  </form>
-    <!-- /.row -->
-
+    <div class="row">
+      <div class="col-lg-6 login-form">
+        <h2>Users Login</h2>
+        <form class="for-inline" action="/api/login" method="POST" style="margin: 1em">
+          <label for="email">Email</label>
+          <input class="form-control" type="email" name="email" placeholder="email" style="width: 300px; margin: 1em">
+          <label for="password">Password</label>
+          <input class="form-control" type="password" name="password" placeholder="password" style="width: 300px; margin: 1em">
+          <button class="btn btn-primary" type="submit">Login</button>
+        </form>
       </div>
-      <!-- /.col-lg-9 -->
-
+      <div class="col-lg-6 login-form">
+        <h2>Artist Login</h2>
+        <form class="for-inline" action="/api/artist-login" method="POST" style="margin: 1em">
+          <label for="email">Email</label>
+          <input class="form-control" type="email" name="email" placeholder="email" style="width: 300px; margin: 1em">
+          <label for="password">Password</label>
+          <input class="form-control" type="password" name="password" placeholder="password" style="width: 300px; margin: 1em">
+          <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+      </div>
     </div>
-    <!-- /.row -->
-
   </div>
-  <!-- /.container -->
-
   <!-- Footer -->
   <%- include('partials/footer') %>
 

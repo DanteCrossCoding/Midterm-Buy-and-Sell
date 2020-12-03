@@ -11,7 +11,30 @@ body {
   }
 }
 
+.artist-section {
+  margin-top: 100px;
+  margin-bottom: 25px;
+}
 
+.filter {
+  margin-top: 25px;
+}
+
+.delete-soldout-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.favourite-button {
+  background: none;
+  border: none;
+  float: right;
+}
+
+.card-img-top {
+  height: 127px;
+}
 
 .delete-form {
   float: right;

@@ -11,7 +11,7 @@ module.exports = (db) => {
     GROUP BY products.id, users.email
     HAVING users.email = $1;
     `;
-    db.query(query, [req.session.email])
+    db.query(query, [req.session['user-email']])
       .then((data) => {
         if (data.rows.length !== 0) {
           res.send(data.rows);

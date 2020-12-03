@@ -3,7 +3,8 @@ const router  = express.Router();
 
 module.exports = () => {
   router.get("/", (req, res) => {
-    res.render('artists');
+    const templateVars = { userEmail: req.session['user-email'], artistEmail: req.session['artist-email'] }
+    res.render('artists', templateVars);
   });
   return router;
 };

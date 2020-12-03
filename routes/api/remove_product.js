@@ -4,7 +4,7 @@ const router  = express.Router();
 module.exports = ((db) => {
   router.post('/', (req, res) => {
     const productID = req.body.productID;
-    const email = req.session.email;
+    const email = req.session['artist-email'];
     const query = `
     DELETE FROM products WHERE id = $1 AND artist_id = (SELECT id FROM artists WHERE email = $2)
     `;

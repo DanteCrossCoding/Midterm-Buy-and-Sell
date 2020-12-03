@@ -9,14 +9,16 @@ const createArtistPage = (productData) => {
           <a href="artists/:${productData.id}">${productData.name}</a>
         </h4>
         <h5>${productData.cost}</h5>
-        <form action="/api/removeproduct/" method="POST">
-          <input class="form-control" type="hidden" name="productID" value="${productData.id}">
-          <button type="submit">Delete</button>
-        </form>
-        <form action="/api/sold-out/" method="POST">
-          <input class="form-control" type="hidden" name="productID" value="${productData.id}">
-          <button type="submit">Mark Sold</button>
-        </form>
+        <div class="delete-soldout-buttons">
+          <form action="/api/removeproduct/" method="POST">
+            <input class="form-control" type="hidden" name="productID" value="${productData.id}">
+            <button class="btn btn-outline-danger" type="submit">Delete</button>
+          </form>
+          <form action="/api/sold-out/" method="POST">
+            <input class="form-control" type="hidden" name="productID" value="${productData.id}">
+            <button class="btn btn-outline-primary" type="submit">Mark Sold</button>
+          </form>
+        </div>
     </div>
   </div>
   `);

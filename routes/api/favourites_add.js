@@ -4,7 +4,7 @@ const router  = express.Router();
 module.exports = (db) => {
   router.post("/add", (req, res) => {
     const productID = (req.body['productID']);
-    const userEmail = req.session.email;
+    const userEmail = req.session['user-email'];
     const query = `
     INSERT INTO favourites (user_id, product_id)
     VALUES (

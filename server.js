@@ -62,17 +62,20 @@ const login = require("./routes/login");
 const loginAPI = require("./routes/api/login_api");
 const artistLoginAPI = require("./routes/api/artist_login");
 
+const logout = require("./routes/logout");
+
 const favouritesAdd = require("./routes/api/favourites_add");
 const favouritesList = require("./routes/api/favourites_list");
 const favouritesRemove = require("./routes/api/favourites_remove");
+
+const merchID = require("./routes/api/merch_id");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use(cookieSession({
   name: 'session',
-  keys: ['email', 'password']
+  keys: ['user-email', 'user-password', 'artist-email', 'artist-password']
 }));
-
 
 app.use("/", indexRedirect());
 // app.use("/users", usersRoutes(db));
@@ -103,9 +106,13 @@ app.use("/login", login());
 app.use("/api/login", loginAPI(db));
 app.use("/api/artist-login", artistLoginAPI(db));
 
+app.use("/logout", logout());
+
 app.use("/api/favourites/", favouritesAdd(db));
 app.use("/api/favourites/", favouritesList(db));
 app.use("/api/favourites/", favouritesRemove(db));
+
+app.use("/api/merchid", merchID(db));
 
 // Note: mount other resources here, using the same pattern above
 

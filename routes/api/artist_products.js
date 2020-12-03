@@ -6,7 +6,7 @@ module.exports = ((db) => {
     const query = `
     SELECT * FROM products WHERE artist_id = (SELECT id FROM artists WHERE email = $1)
     `;
-    db.query(query, [req.session.email])
+    db.query(query, [req.session['artist-email']])
       .then((data) => {
         res.send(data.rows);
       })
