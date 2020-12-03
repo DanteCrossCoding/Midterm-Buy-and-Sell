@@ -17,6 +17,7 @@ const $favouriteHeader = $(`
   <!-- insert filters here -->
 </div>
 `);
+
 const favouritesList = function() {
   $.ajax({
     method: "GET",

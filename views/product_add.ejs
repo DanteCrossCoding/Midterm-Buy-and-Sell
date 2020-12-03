@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Merch Store Home</title>
+  <title>Add Product</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,32 +27,32 @@
   <!-- Page Content -->
   <div class="container">
 
-    <div class="body-row">
+    <div class="body add-form">
 
         <div class="col-lg-12">
 
         <div class="row">
           <form action="/api/addproduct/" method="POST" class="new-form">
-            <div class="form-group">
-              <label for="merch-id-label">Merch ID:</label>
-              <input type="text" class="form-control" name="merch-id" placeholder="text">
+            <div class="form-group row">
+              <label for="merch-id-label">Merch Type:</label>
+              <select class="form-control merch-type" name="merch-id">
+              </select>
             </div>
-            <div class="form-group">
+            <div class="form-group row">
               <label for="merch-name-label">Name:</label>
               <input type="text" class="form-control" name="merch-name-id" placeholder="text">
             </div>
-            <div class="form-group">
+            <div class="form-group row">
               <label for="merch-description-label">Description:</label>
               <input type="text" class="form-control" name="merch-description-id" placeholder="text">
             </div>
-            <div class="form-row">
+            <div class="form-group row">
               <label for="merch-cost-label">Cost:</label>
               <div class="input-group">
-                  <span class="input-group-addon">$</span>
-                  <input name="cost" type="number" value="0" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+                <input name="cost" type="number" value="0" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
               </div>
             </div>
-            <div class="form-row">
+            <div class="form-group row">
               <label for="merch-cost-label">Merch Sizes</label>
               <select class="form-control" name="merch-size">
                 <option>XS</option>
@@ -64,11 +64,11 @@
                 <option>3XL</option>
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-group row">
               <label for="merch-thumbnail-url-label">Thumbnail Image:</label>
               <input type="text" class="form-control" name="merch-thumbnail-url-id" placeholder="text">
             </div>
-            <div class="form-group">
+            <div class="form-group row">
               <label for="merch-thumbnail-url-label">Cover Photo Image:</label>
               <input type="text" class="form-control" name="merch-cover-photo-url-id" placeholder="text">
             </div>
@@ -92,6 +92,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../scripts/add_product.js"></script>
 
 </body>
 

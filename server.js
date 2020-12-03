@@ -68,6 +68,8 @@ const favouritesAdd = require("./routes/api/favourites_add");
 const favouritesList = require("./routes/api/favourites_list");
 const favouritesRemove = require("./routes/api/favourites_remove");
 
+const merchID = require("./routes/api/merch_id");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use(cookieSession({
@@ -109,6 +111,8 @@ app.use("/logout", logout());
 app.use("/api/favourites/", favouritesAdd(db));
 app.use("/api/favourites/", favouritesList(db));
 app.use("/api/favourites/", favouritesRemove(db));
+
+app.use("/api/merchid", merchID(db));
 
 // Note: mount other resources here, using the same pattern above
 
