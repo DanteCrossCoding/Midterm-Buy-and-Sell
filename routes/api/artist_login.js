@@ -9,12 +9,13 @@ module.exports = (db) => {
     SELECT * FROM artists;
     `;
     db.query(query)
-      .then(() => {
+      .then((query) => {
+        console.log(query)
         if (email.length === 0 || password.length === 0) {
           return res.status(403).send('Error: Please enter a valid email address and password.');
         }
-        req.session.email = email;
-        req.session.password = password;
+        req.session['artist-email'] = email;
+        req.session['artist-password'] = password;
         res.redirect("/");
       })
       .catch((error) => {

@@ -3,7 +3,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    const artistEmail = req.session.email;
+    const artistEmail = req.session['artist-email'];
     const merchId = req.body['merch-id'];
     const merchName = req.body['merch-name-id'];
     const merchDescription = req.body['merch-description-id'];

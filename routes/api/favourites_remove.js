@@ -5,7 +5,7 @@ const router  = express.Router();
 module.exports = (db) => {
   router.post("/remove", (req, res) => {
     const productID = req.body.productID;
-    const email = req.session.email;
+    const email = req.session['user-email'];
     const query = `
     DELETE FROM favourites
     WHERE product_id = $1 AND user_id = (SELECT id FROM users WHERE email = $2);

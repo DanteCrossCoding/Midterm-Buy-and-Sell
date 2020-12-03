@@ -62,6 +62,8 @@ const login = require("./routes/login");
 const loginAPI = require("./routes/api/login_api");
 const artistLoginAPI = require("./routes/api/artist_login");
 
+const logout = require("./routes/logout");
+
 const favouritesAdd = require("./routes/api/favourites_add");
 const favouritesList = require("./routes/api/favourites_list");
 const favouritesRemove = require("./routes/api/favourites_remove");
@@ -70,9 +72,8 @@ const favouritesRemove = require("./routes/api/favourites_remove");
 // Note: Feel free to replace the example routes below with your own
 app.use(cookieSession({
   name: 'session',
-  keys: ['email', 'password']
+  keys: ['user-email', 'user-password', 'artist-email', 'artist-password']
 }));
-
 
 app.use("/", indexRedirect());
 // app.use("/users", usersRoutes(db));
@@ -102,6 +103,8 @@ app.use("/api/removeproduct/", removeProductAPI(db));
 app.use("/login", login());
 app.use("/api/login", loginAPI(db));
 app.use("/api/artist-login", artistLoginAPI(db));
+
+app.use("/logout", logout());
 
 app.use("/api/favourites/", favouritesAdd(db));
 app.use("/api/favourites/", favouritesList(db));
