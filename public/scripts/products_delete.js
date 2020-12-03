@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const createArtistPage = (productData) => {
   const $artistCard = $(`
   <div class="col-lg-4 col-md-6 mb-4">
@@ -30,6 +31,7 @@ $(() => {
   }).done((data) => {
     for (product of data) {
       if (product.sold_out) {
+        // eslint-disable-next-line camelcase
         product.thumbnail_photo_url = "../images/sold_out.png";
       }
       $('.row').append(createArtistPage(product));
