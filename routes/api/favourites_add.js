@@ -10,10 +10,10 @@ module.exports = (db) => {
     VALUES (
       (SELECT id
       FROM users
-      WHERE email = '${userEmail}')
-      , ${productID})
+      WHERE email = $1)
+      , $2)
     `;
-    db.query(query)
+    db.query(query, [userEmail, productID])
       .then(() => {
         res.redirect('back');
       })

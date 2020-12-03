@@ -4,9 +4,9 @@ const router  = express.Router();
 module.exports = ((db) => {
   router.get('/', (req, res) => {
     const query = `
-    SELECT * FROM products WHERE artist_id = (SELECT id FROM artists WHERE email = '${req.session.email}')
+    SELECT * FROM products WHERE artist_id = (SELECT id FROM artists WHERE email = $1)
     `;
-    db.query(query)
+    db.query(query, [req.session.email])
       .then((data) => {
         res.send(data.rows);
       })

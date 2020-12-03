@@ -9,15 +9,15 @@ module.exports = (db) => {
     JOIN favourites ON user_id = users.id
     JOIN products ON product_id = products.id
     GROUP BY products.id, users.email
-    HAVING users.email = '${req.session.email}';
+    HAVING users.email = $1;
     `;
-    db.query(query)
+    db.query(query, [req.session.email])
       .then((data) => {
         if (data.rows.length !== 0) {
           res.send(data.rows);
         }
         if (data.rows.length === 0) {
-          res.send("no data")
+          res.send("no data");
         }
 
       })

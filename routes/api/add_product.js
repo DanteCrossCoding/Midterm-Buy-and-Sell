@@ -3,6 +3,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
+    const artistEmail = req.session.email;
     const merchId = req.body['merch-id'];
     const merchName = req.body['merch-name-id'];
     const merchDescription = req.body['merch-description-id'];
@@ -12,12 +13,12 @@ module.exports = (db) => {
     const coverURL = req.body['merch-cover-photo-url-id'];
     let query = `
     INSERT INTO products (artist_id, merch_id, name, description, cost, size, thumbnail_photo_url, cover_photo_url, sold_out)
-    VALUES((SELECT id FROM artists WHERE email = '${req.session.email}'), ${merchId}, '${merchName}', '${merchDescription}', '$${cost}', '${size}', '${thumbnailURL}', '${coverURL}', false)
+    VALUES((SELECT id FROM artists WHERE email = $1), $2, $3, $4, $5, $6, $7, $8, false)
     RETURNING *;
     `;
-    db.query(query)
+    db.query(query, [artistEmail, merchId, merchName, merchDescription, cost, size, thumbnailURL, coverURL])
       .then((data) => {
-        res.redirect("/");
+        res.redirect(`/products/:${data.rows[0].id}`);
       })
       .catch((error) => {
         console.log("product add error", error);

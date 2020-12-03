@@ -39,9 +39,9 @@ const artistsRoutes = require("./routes/artists");
 const artistsAPIRoutes = require("./routes/api/artists_api");
 const artistProductsAPI = require("./routes/api/artist_id_api");
 const artistIDRoutes = require("./routes/artist_id");
-const artistPageAPI = require("./routes/api/artist_products.js")
+const artistPageAPI = require("./routes/api/artist_products.js");
 const artistPage = require("./routes/artist_page.js");
-const soldOut = require("./routes/api/sold_out.js")
+const soldOut = require("./routes/api/sold_out.js");
 
 const indexRedirect = require("./routes/index_redirect");
 const indexRoutes = require("./routes/index");

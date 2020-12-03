@@ -58,6 +58,7 @@ $(() => {
       $('.band-photo').prepend(artistImage(data));
       for (product of data) {
         if (product.sold_out) {
+          // eslint-disable-next-line camelcase
           product.thumbnail_photo_url = "../images/sold_out.png";
         }
         writeProducts(product);

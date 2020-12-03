@@ -10,7 +10,6 @@ const createProductIDCard = (productData) => {
         </h4>
         <h5>${productData[0].cost}</h5>
         <h5><a href="mailto:${productData[0].artist_email}?subject=${productData[0].name}">Contact us about this product!</a></h5>
-        <a href="/api/favourites/add/">favourite</a>
         <form action="/api/favourites/add" method="POST">
         <input class="form-control" type="hidden" name="productID" value="${productData.id}">
         <button type="submit">Favorite</button>
@@ -30,6 +29,7 @@ $(() => {
     url: `/api/products/:${num[1]}/`
   }).done((product) => {
     if (product[0].sold_out) {
+      // eslint-disable-next-line camelcase
       product[0].thumbnail_photo_url = "../images/sold_out.png";
     }
     $('.row').append(createProductIDCard(product));
