@@ -3,11 +3,13 @@ const router  = express.Router();
 
 module.exports = ((db) => {
   router.post('/', (req, res) => {
+    const productID = req.body.productID;
+    const email = req.session.email;
     const query = `
-    DELETE FROM products WHERE id = ${req.body.productID} AND artist_id = (SELECT id FROM artists WHERE email = '${req.session.email}')
+    DELETE FROM products WHERE id = $1 AND artist_id = (SELECT id FROM artists WHERE email = $2)
     `;
-    db.query(query)
-      .then((data) => {
+    db.query(query, [productID, email])
+      .then(() => {
         res.redirect("back");
       })
       .catch(err => {
