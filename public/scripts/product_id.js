@@ -6,7 +6,7 @@ const createProductIDCard = (productData) => {
       <a href="#"><img class="card-img-top" src="${productData[0].thumbnail_photo_url}" alt=""></a>
       <div class="card-body">
         <h4 class="card-title">
-          <a href="products/:${productData[0].id}">${productData[0].name}</a>
+          <a>${productData[0].name}</a>
         </h4>
         <h5>${productData[0].cost}</h5>
         <h5><a href="mailto:${productData[0].artist_email}?subject=${productData[0].name}">Contact us about this product!</a></h5>

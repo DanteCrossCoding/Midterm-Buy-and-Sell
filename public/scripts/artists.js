@@ -4,7 +4,7 @@ const createArtistCard = (artistData) => {
   const $artistCard = $(`
   <div class="col-lg-4 col-md-6 mb-4">
     <div class="card">
-      <img class="card-img-top" src=${artistData.image} alt="">
+      <img href="/artists/:${artistData.id}" class="card-img-top" src=${artistData.image} alt="">
       <div class="card-body">
         <p class="card-text">
         <a href="/artists/:${artistData.id}">${artistData.name}</a>
